@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <Router />
-      <Checkbox/>
+      {/* <Checkbox /> */}
     </div>
   );
 };
