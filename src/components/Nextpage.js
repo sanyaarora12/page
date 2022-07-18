@@ -1,26 +1,21 @@
-import React,{useState,useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import data from "./db.json";
 
 export const Nextpage = () => {
-    const [posts, setPosts] = useState([]);
- 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get('http://localhost:5000/users');
-      setPosts(res.data);
-    };
-
-    fetchPosts();
-  }, []);
+   
   return (
     <div>
       <ul>
-        {posts.slice(8,16).map(post=>(
-            <li key={post.id}>
-                <img src={post.link} alt="" height="100px"/>
-            </li>
-        ))}
+         {
+     data && data.slice(8,16).map(item=>{
+     return(
+        <div>
+          <img src={item.link} alt="" height="100px" />
+         </div>
+     )
+    })
+   }
       </ul>
       <button>
         <Link to="/">
