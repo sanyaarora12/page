@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
-export const Posts = () => {
+export const Nextpage = () => {
     const [posts, setPosts] = useState([]);
  
   useEffect(() => {
@@ -16,27 +15,13 @@ export const Posts = () => {
   return (
     <div>
       <ul>
-        {posts.slice(0,8).map(post=>(
+        {posts.slice(8,16).map(post=>(
             <li key={post.id}>
                 <img src={post.link} alt="" height="100px"/>
             </li>
         ))}
       </ul>
-      <button>
-        <Link to="/nextpage">
-        Next Page
-        </Link>
-        </button>
     </div>
   )
 }
-export default Posts;
-// {
-//     data && data.map(item=>{
-//      return(
-//        <div>
-//          <img src={item.link} alt="" height="100px" />
-//          </div>
-//      )
-//     })
-//   }
+export default Nextpage;
