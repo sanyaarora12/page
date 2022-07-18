@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export const Nextpage = () => {
     const [posts, setPosts] = useState([]);
@@ -21,6 +22,11 @@ export const Nextpage = () => {
             </li>
         ))}
       </ul>
+      <button>
+        <Link to="/">
+            Back
+        </Link>
+      </button>
     </div>
   )
 }
