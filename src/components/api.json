@@ -88,13 +88,13 @@
         "link": "https://www.collinsdictionary.com/images/full/river_377603497_1000.jpg",
         "id": 15,
         "title": "river",
-        "tags": ["river"]
+        "tags": "river"
     },
     {
         "link": "https://www.aquaexpeditions.com/wp-content/uploads/2019/04/Black-Water-Lake.jpg",
         "id": 16,
         "title": "river",
-        "tags": ["river"]
+        "tags": "river"
     }
     
     ]

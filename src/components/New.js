@@ -2,38 +2,40 @@ import React from "react";
 import data from "./api.json";
 
 export default function App() {
-  const [genderFilter, setGenderFilter] = React.useState("all");
-  const [dataMember, setDataMember] = React.useState("");
+  const [Filter, setFilter] = React.useState("all");
+  const [dataMember, setDataMember] = React.useState([]);
 
   React.useEffect(() => {
-    if (genderFilter === "all") {
+    if (Filter === "all") {
       setDataMember(data.results);
     } else {
-      const filteredGender = data.results.filter(
-        (member) => member.tags === genderFilter
+      const filtered = data.results.filter(
+        (member) => member.tags === Filter
       );
-      setDataMember(filteredGender);
+      setDataMember(filtered);
     }
-  }, [genderFilter]);
+  }, [Filter]);
 
   const checkboxFiltersValue = {
     all: "all",
     nature: "nature",
     Sea: "Sea",
     Animal:"Animal",
-    bird:"bird"
+    bird:"bird",
+    river:"river"
   };
 
   console.log(dataMember);
 
   return (
+    <>
     <div className="App">
       <label>
         <input
           type="checkbox"
           value={checkboxFiltersValue.all}
-          checked={genderFilter === checkboxFiltersValue.all}
-          onClick={({ target }) => setGenderFilter(target.value)}
+          checked={Filter === checkboxFiltersValue.all}
+          onClick={({ target }) => setFilter(target.value)}
         />
         All
       </label>
@@ -41,8 +43,8 @@ export default function App() {
         <input
           type="checkbox"
           value={checkboxFiltersValue.nature}
-          checked={genderFilter === checkboxFiltersValue.nature}
-          onClick={({ target }) => setGenderFilter(target.value)}
+          checked={Filter === checkboxFiltersValue.nature }
+          onClick={({ target }) => setFilter(target.value)}
         />
         Nature
       </label>
@@ -50,8 +52,8 @@ export default function App() {
         <input
           type="checkbox"
           value={checkboxFiltersValue.Sea}
-          checked={genderFilter === checkboxFiltersValue.Sea}
-          onClick={({ target }) => setGenderFilter(target.value)}
+          checked={Filter === checkboxFiltersValue.Sea}
+          onClick={({ target }) => setFilter(target.value)}
         />
        Sea
       </label>
@@ -59,12 +61,22 @@ export default function App() {
         <input
           type="checkbox"
           value={checkboxFiltersValue.Animal}
-          checked={genderFilter === checkboxFiltersValue.Animal}
-          onClick={({ target }) => setGenderFilter(target.value)}
+          checked={Filter === checkboxFiltersValue.Animal}
+          onClick={({ target }) => setFilter(target.value)}
         />
        Animal
       </label>
+      <label>
+        <input
+          type="checkbox"
+          value={checkboxFiltersValue.river}
+          checked={Filter === checkboxFiltersValue.river}
+          onClick={({ target }) => setFilter(target.value)}
+        />
+       River
+      </label>
       {dataMember && dataMember.map((member) => <div><img src={member.link} alt="" height="100px" /></div>)}
     </div>
+    </>
   );
 }
