@@ -7,7 +7,7 @@ export const Posts = () => {
     <div>
       <ul>
         {data &&
-          data.slice(0, 8).map((item) => {
+          data.map((item) => {
             return (
               <div>
                 <img src={item.link} alt="" height="100px" />

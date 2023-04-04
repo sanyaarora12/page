@@ -3,13 +3,9 @@ import React, { useEffect, useState } from 'react';
 const Pagination = ({ paginate,posts,postsPerPage }) => {
   const[pageNumber,setPageNumber]=useState([])
 
-
   useEffect(()=>{
     console.log(Math.ceil(posts.length/postsPerPage ))
-    // for (let i = 1; i <= Math.ceil(posts.length/postsPerPage ); i++) {
-    //   setPageNumber((s)=>{
-    //     return [...s,i]
-    //   }
+  
     setPageNumber(new Array(Math.ceil(posts.length/postsPerPage )).fill(0))
       
     },[postsPerPage])

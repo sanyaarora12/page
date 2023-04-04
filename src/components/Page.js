@@ -2,7 +2,6 @@ import React from 'react';
 
 const Page = ({ posts}) => {
   
-
   return (
     <ul className='list-group mb-4'>
       {posts.map(post => (
